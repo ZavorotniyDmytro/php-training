@@ -1,35 +1,56 @@
+body {
+    background: #b1edff;
+}
+
+header {
+    vertical-align: middle;
+    text-align: center; 
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
-    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
     color: brown;
 }
 
-span.group-brand {
+a {
     font-size: 36px;
+}
+
+table {
+    width: 70%;
+    border-collapse: collapse;
+    background-color: #f0f8ff; 
+    border: 1px solid #000;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  th {
+    background-color: #87ceeb;
+    color: #fff;
     font-weight: bold;
-    color: darkcyan;
-}
-
-span.group-legendary-phrase {
-    color: #b4b244;
-}
-
-span.group-head-of-apple {
-    font-size: 36px;
-    color: purple;
-}
-
-td, th {
-    border-style: solid;
-    border-color: #000000;
-    border-width: 1px;
-}
-
-th {
-    background-color: #c0c0c0;
-    font-weight: bold;
-}
-
-tr.row {
-    background-color: #f2f2f2;
+    padding: 10px;
+    border: 1px solid #000; 
     text-align: center;
-}
+  }
+
+  td {
+    padding: 10px;
+    border: 1px solid #000;
+    text-align: center;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #b0e0e6;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #e0ffff;
+  }

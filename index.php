@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>Medical prescription for <?php echo $data['prescription']['patient']; ?> (<?php echo $data['prescription']['year']; ?>  year of birth)</h1>
+        <h1>Medical prescription for <?php echo $data['prescription']['patient']; ?><br>(<?php echo $data['prescription']['year']; ?>  year of birth)</h1>
         <h2>Doctor: <?php echo $data['prescription']['doctor']; ?></h2>
         <a href="/forms/edit-prescription.php">Edit prescription</a>
     </header>
