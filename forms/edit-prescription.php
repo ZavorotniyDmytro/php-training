@@ -19,16 +19,16 @@
     <title>Drag edit</title>
     <link rel="stylesheet" href="/styles/edit-prescription.css">
 </head>
-<body>
-    <a href="/index.php">Main page</a>
-    <form name='edit-prescription' method="post">
-        <div><label for="patient">Patient</label><input type="text" name="patient" 
-        value="<?php echo $data['prescription']['patient']; ?>"></div>
-        <div><label for="year">Year</label><input type="text" name="year" 
-        value="<?php echo $data['prescription']['year']; ?>"></div>
-        <div><label for="doctor">Doctor</label><input type="text" name="doctor"
-        value="<?php echo $data['prescription']['doctor']; ?>"></div>
-        <div><input type="submit" name="ok" value="change"></div>
-    </form>
-</body>
+    <body>
+        <a href="/index.php">Main page</a>
+        <form name='edit-prescription' method="post">
+            <div><label for="patient">Patient</label><input type="text" name="patient" 
+            value="<?php echo $data['prescription']['patient']; ?>"></div>
+            <div><label for="year">Year</label><input type="text" name="year" 
+            value="<?php echo $data['prescription']['year']; ?>"></div>
+            <div><label for="doctor">Doctor</label><input type="text" name="doctor"
+            value="<?php echo $data['prescription']['doctor']; ?>"></div>
+            <div><input type="submit" name="ok" value="change"></div>
+        </form>
+    </body>
 </html>
