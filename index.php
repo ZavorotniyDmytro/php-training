@@ -1,5 +1,5 @@
 <?php 
-    require_once('data/drag.php');
+    require_once('data/drugs.php');
     require_once('data/prescription.php');
 ?>
 <!DOCTYPE html>
@@ -21,6 +21,7 @@
                     <th>name</th>
                     <th>dosage</th>
                     <th>company</th>
+                    <td>EDIT</td>
                 </thead>
                 <tbody>
                     <?php foreach ($data['drug'] as $key => $drug ): ?>
@@ -29,6 +30,11 @@
                             <td><?php echo $drug['name']; ?></td>
                             <td><?php echo $drug['dosage']; ?></td>
                             <td><?php echo $drug['company']; ?></td>
+                            <td>
+                                <a href='forms/edit-drug.php?file=<?php echo $drug['file'];?>'>
+                                    Edit
+                                </a>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

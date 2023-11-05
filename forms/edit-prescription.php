@@ -8,7 +8,7 @@
         $grStr = implode(";", $grArr);
         fwrite($f, $grStr);
         fclose($f);
-        header('Location: ../index.php');
+        header('Location: /../index.php');
     }
 ?>
 <!DOCTYPE html>
@@ -16,8 +16,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag edit</title>
-    <link rel="stylesheet" href="/styles/edit-prescription.css">
+    <title>Prescription edit</title>
+    <link rel="stylesheet" href="/styles/edit-form.css">
 </head>
     <body>
         <a href="/index.php">Main page</a>
