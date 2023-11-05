@@ -10,6 +10,7 @@
     <head>
         <title>Medical prescription</title>
         <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/filter.css">
     </head>
     <body>
         <header>
