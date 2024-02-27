@@ -10,30 +10,8 @@
             }
         }
     }
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../css/login-style.css">
-    <title>Authentication</title>
-    <body>
-    <form class="login-container" method="post">
-        <h2>Log In</h2>
-        <p>
-            <input class="login-input" type="text" name="username" placeholder="Username">
-        </p>
-        <p>
-            <input class="login-input" type="password" name="password" placeholder="Password">
-        </p>
-        <p>
-            <input class="login-button" type="submit" value="Log in">
-        </p>
-        <div class="login-link">
-            <a href="#">Forgot Password?</a>
-        </div>
-    </form>
-</body>
-</html>
+    require_once '../view/autorun.php';
+    $myView = \View\RecipeListView::makeView(\View\RecipeListView::SIMPLEVIEW);
+    $myView->showLoginForm();
+?>
