@@ -44,6 +44,9 @@ class FileData extends Data {
     }
 
     protected function getRecipe($id) {
+        if (!isset($_GET['recipe']) || $_GET['recipe'] == '') {
+            $_GET['recipe'] = 'recipe-01';
+        }
         $f = fopen(self::DATA_PATH . $id . "/recipe.txt", "r");
         $rowStr = fgets($f);
         $rowArr = explode(";", $rowStr);
