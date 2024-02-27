@@ -1,0 +1,140 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.header {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 15px;
+    text-align: center;
+}
+
+.header div {
+    align-items: center;
+}
+
+.header a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.recipe-form-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.recipe-form-container label,
+.recipe-form-container select,
+.recipe-form-container input,
+.add-recipe-button {
+    margin-right: 10px;
+}
+
+.recipe-form-container select {
+    padding: 5px;
+}
+
+.add-recipe-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.add-recipe-button:hover {
+    background-color: #45a049;
+}
+
+.header-content {
+    display: block;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    color: #000;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-name,
+.recipe-info {
+    font-size: 18px;
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.recipe-name {
+    color: #4caf50;
+    font-size: 24px;
+}
+
+.recipe-info-highlight {
+    font-size: 20px;
+    color: #4caf50;
+}
+
+.action {
+    margin: 10px;
+    margin-bottom: 0;
+}
+
+.filter-and-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.medicines-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.medicines-table th,
+.medicines-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.medicines-table th {
+    background-color: #4caf50;
+    color: #ffffff;
+}
+
+.medicines-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.medicines-table a {
+    color: #4caf50;
+    text-decoration: none;
+}
+
+.medicines-table a:hover {
+    text-decoration: underline;
+}
+
+.add-medicine-button {
+    background-color: #4caf50;
+    color: #ffffff;
+    padding: 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-medicine-button:hover {
+    background-color: #45a049;
+}
