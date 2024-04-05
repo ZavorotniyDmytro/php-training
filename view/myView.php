@@ -18,7 +18,7 @@ class MyView extends RecipeListView {
                 </select>
                 <input type="submit" value="OK">
                 <?php if($this->checkRight('recipe', 'create')):?>
-                    <a href="forms/create-recipe.php" class="add-recipe-button">Add recipe</a>
+                    <a href="?action=create-recipe" class="add-recipe-button">Add recipe</a>
                 <?php endif; ?>
             </form>
         <?php
@@ -32,10 +32,10 @@ class MyView extends RecipeListView {
         </div>
         <div class='action'>
             <?php if($this->checkRight('recipe', 'edit')):?>
-                <a href="forms/edit-data.php?recipe=<?php echo $_GET['recipe']; ?>">Edit data</a>
+                <a href="?action=edit-recipe-form&recipe=<?php echo $_GET['recipe']; ?>">Edit data</a>
             <?php endif; ?>
             <?php if($this->checkRight('recipe', 'delete')):?>
-                <a href="forms/delete-data.php?recipe=<?php echo $_GET['recipe']; ?>">Delete data</a>
+                <a href="?action=delete-recipe&recipe=<?php echo $_GET['recipe']; ?>">Delete data</a>
             <?php endif; ?>
         </div>
         <?php
@@ -51,7 +51,7 @@ class MyView extends RecipeListView {
                         <input type="submit" value='Filter'>
                     </form>
                     <?php if($this->checkRight('medicine', 'create')):?>
-                        <a href="forms/create-medicine.php?recipe=<?php echo $_GET['recipe']; ?>" class="add-medicine-button">Add medicine</a>
+                        <a href="?action=create-medicine-form&recipe=<?php echo $_GET['recipe']; ?>" class="add-medicine-button">Add medicine</a>
                     <?php endif; ?>
                 </div>
                 <table class="medicines-table">
@@ -76,14 +76,14 @@ class MyView extends RecipeListView {
                                         <td><?php echo $medicine->getForm(); ?></td>
                                         <td>
                                             <?php if($this->checkRight('medicine', 'edit')):?>
-                                                <a href="forms/edit-medicine.php?recipe=<?php
+                                                <a href="?action=edit-medicine-form&recipe=<?php
                                                     echo $_GET['recipe']; ?>&file=<?php
                                                         echo $medicine->getId();
                                                     ?>">Edit</a>
                                             <?php endif; ?>
                                             |
                                             <?php if($this->checkRight('medicine', 'delete')):?>
-                                                <a href="forms/delete-medicine.php?recipe=<?php
+                                                <a href="?action=delete-medicine&recipe=<?php
                                                     echo $_GET['recipe']; ?>&file=<?php
                                                         echo $medicine->getId();
                                                     ?>">Delete</a>
@@ -115,9 +115,9 @@ class MyView extends RecipeListView {
                 <div>
                     <span>Hello <?php echo $_SESSION['user']; ?>!</span>
                     <?php if($this->checkRight('user', 'admin')): ?>
-                        <a href="admin/index.php">Administration</a>
+                        <a href="?action=admin">Administration</a>
                     <?php endif; ?>
-                    <a href="/lr10/auth/logout.php">Log out</a>
+                    <a href="?action=logout">Log out</a>
                 </div>
                 <?php if($this->checkRight('recipe', 'view')){
                     $this->showRecipes($recipes);
@@ -145,12 +145,12 @@ class MyView extends RecipeListView {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="../css/edit-data-form-style.css">
+            <link rel="stylesheet" href="css/edit-data-form-style.css">
             <title>Data editing</title>
         </head>
         <body>
-            <a href="../index.php?recipe=<?php echo $_GET['recipe'];?>">Home</a>
-            <form class="container" name="edit-data" method='post'>
+            <a href="index.php?recipe=<?php echo $_GET['recipe'];?>">Home</a>
+            <form class="container" name="edit-data" method='post' action='?action=edit-recipe&recipe=<?php echo $_GET['recipe'];?>'>
                 <div><label for="patient">Recipe for </label><input type="text" name="patient" value="<?php echo $recipe->getPatient(); ?>"></div>
                 <div><label for="born">Born: </label><input type="text" name="born" value="<?php echo $recipe->getBorn(); ?>"></div>
                 <div><label for="doctor">Doctor: </label><input type="text" name="doctor" value="<?php echo $recipe->getDoctor(); ?>"></div>
@@ -167,12 +167,12 @@ class MyView extends RecipeListView {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel='stylesheet' type='text/css' href='../css/edit-medicine-form-style.css'>
+            <link rel='stylesheet' type='text/css' href='css/edit-medicine-form-style.css'>
             <title>Edit medicine</title>
         </head>
         <body>
-            <a href="../index.php?recipe=<?php echo $_GET['recipe'];?>">Home</a>
-            <form class="container" name="edit-medicine" method='post'>
+            <a href="index.php?recipe=<?php echo $_GET['recipe'];?>">Home</a>
+            <form class="container" name="edit-medicine" method='post' action='?action=edit-medicine&file=<?php echo $_GET['file'];?>&recipe=<?php echo $_GET['recipe']?>'>
                 <div><label for="name">Name: </label><input type="text" name="name" value="<?php echo $medicine->getName();?>"></div>
                 <div><label for="dosage">Medicine's dosage: </label><input type="text" name="dosage" value="<?php echo $medicine->getDosage(); ?>"></div>
                 <div><label for="form">Medicine's form: </label><input type="text" name="form" value="<?php echo $medicine->getForm(); ?>"></div>
@@ -190,12 +190,12 @@ class MyView extends RecipeListView {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel='stylesheet' type='text/css' href='../css/edit-medicine-form-style.css'>
+            <link rel='stylesheet' type='text/css' href='css/edit-medicine-form-style.css'>
             <title>Add medicine</title>
         </head>
         <body>
-            <a href="../index.php?recipe=<?php echo $_GET['recipe'];?>">Home</a>
-            <form class="container" name="edit-medicine" method='post'>
+            <a href="?recipe=<?php echo $_GET['recipe'];?>">Home</a>
+            <form class="container" name="edit-medicine" method='post' action="?action=create-medicine&recipe=<?php echo $_GET['recipe'];?>">
                 <div><label for="name">Name: </label><input type="text" name="name"></div>
                 <div><label for="dosage">Medicine's dosage: </label><input type="text" name="dosage"></div>
                 <div><label for="form">Medicine's form: </label><input type="text" name="form"></div>
@@ -213,10 +213,10 @@ class MyView extends RecipeListView {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" type="text/css" href="../css/login-style.css">
+            <link rel="stylesheet" type="text/css" href="css/login-style.css">
             <title>Authentication</title>
             <body>
-            <form class="login-container" method="post">
+            <form class="login-container" method="post" action="?action=checkLogin">
                 <h2>Log In</h2>
                 <p><input class="login-input" type="text" name="username" placeholder="Username"></p>
                 <p><input class="login-input" type="password" name="password" placeholder="Password"></p>
@@ -236,12 +236,12 @@ class MyView extends RecipeListView {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel='stylesheet' type='text/css' href='../css/admin-style.css'>
+            <link rel='stylesheet' type='text/css' href='css/admin-style.css'>
             <title>Administration</title>
         </head>
         <body>
             <header>
-                <a href="../index.php" class='home-button'>Home</a>
+                <a href="index.php" class='home-button'>Home</a>
                 <h1>User administration</h1>
             </header>
             <section>
@@ -250,7 +250,7 @@ class MyView extends RecipeListView {
                     <tbody>
                         <?php foreach($users as $user):?>
                             <?php if($user->getUserName() != $_SESSION['user'] && $user->getUserName() != 'admin' && trim($user->getUserName()) != '' ): ?>
-                                <tr><td><a href="edit-user.php?username=<?php echo $user->getUserName();?>"><?php echo $user->getUserName();?></a></td></tr>
+                                <tr><td><a href="?action=edit-user-form&username=<?php echo $user->getUserName();?>"><?php echo $user->getUserName();?></a></td></tr>
                             <?php endif; ?>
                         <?php endforeach;?>
                     </tbody>
@@ -267,12 +267,12 @@ class MyView extends RecipeListView {
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel='stylesheet' text='text/css' href='../css/admin-edit-style.css'>
+            <link rel='stylesheet' text='text/css' href='css/admin-edit-style.css'>
             <title>Editing users</title>
         </head>
         <body>
-            <a href="index.php">To the user list</a>
-            <form name='edit-user' method="post">
+            <a href="?action=admin">To the user list</a>
+            <form name='edit-user' method="post" action='?action=edit-user&user=<?php echo $_GET['username']; ?>'>
                 <div>
                     <div>
                         <label for="user_name">Username: </label>
