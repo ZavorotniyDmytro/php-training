@@ -1,0 +1,15 @@
+div.recipe-list, div.user-info, div.recipe-control, div.table-medicines {
+    margin-top: 20px;
+}
+section.medicines {
+    margin-top: 40px;
+}
+div.user-info a, div.recipe-control a {
+    margin-left: 10px;
+}
+div.table-medicines table th {
+    text-align: center;
+}
+div.add-medicines {
+    margin-bottom: 10px;
+}

@@ -105,6 +105,7 @@ class RecipeListApp {
             $recipes = $this->model->readRecipes();
         }
         $recipe = new \Model\Recipe();
+        if(!isset($_GET['recipe'])) $_GET['recipe'] = 2;
         if($_GET['recipe'] && $this->model->checkRight('recipe', 'view')) {
             $recipe = $this->model->readRecipe($_GET['recipe']);
         }

@@ -3,6 +3,7 @@ namespace Model;
 
 abstract class Data {
     const FILE = 0;
+    const DB = 1;
 
     private $error;
     private $user;
@@ -174,6 +175,8 @@ abstract class Data {
     public static function makeModel($type) {
         if ($type == self::FILE) {
             return new FileData();
+        } elseif ($type==self::DB) {
+            return new DBData(new MySQLdb());
         }
         return new FileData();
     }
